@@ -15,6 +15,11 @@ $this->layout("_theme", ["Title" => $Title]); ?>
                         Falha ao conectar! Usuário e/ou senha estão incorretos.
                     </div>
                 <?php
+                elseif (isset($verify['login_failed']) && $verify['login_failed'] == 2) : ?>
+                    <div class="alert alert-danger" role="alert">
+                        Preencha os dados corretamente!
+                    </div>
+                <?php
                 endif; ?>
 
                 <form class="form-login" method="post" action="<?= url("loginAct"); ?>"

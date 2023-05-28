@@ -11,7 +11,7 @@ class User extends \CoffeeCode\DataLayer\DataLayer
         bool $timestamps = false,
         array $database = null
     ) {
-        parent::__construct($entity, $required, $primary, $timestamps, $database);
+        parent::__construct($entity, $required, $primary);
     }
 
     public function sign($data)
@@ -19,22 +19,17 @@ class User extends \CoffeeCode\DataLayer\DataLayer
         $this->create($data);
     }
 
-    public function login(string $email, string $password)  : array
+    public function login(string $email, string $password): array
     {
-        try {
-            $user = $this->find("email = :email", "email=$email")->fetch();
-            $userData = $user->data();
-            if(password_verify($password, $userData->senha)){
-                return [
-                    "UserID" => $userData->id,
-                    "Email"=> $userData->email,
-                    "Authenticated" => "Yes"
-                    ];
-            }
-            var_dump($user);
-        }catch(\PDOException $e){
-            echo $e->getMessage();
+        $user = $this->find("email = :email", "email=$email")->fetch();
+        $userData = $user->data();
+        if (password_verify($password, $userData->senha)) {
+            return [
+                "UserID" => $userData->id,
+                "Email" => $userData->email,
+                "Authenticated" => "Yes"
+            ];
         }
-        exit();
+        return [];
     }
 }

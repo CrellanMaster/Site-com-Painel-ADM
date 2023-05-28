@@ -1,13 +1,13 @@
 <?php
 
 use CoffeeCode\Router\Router;
-use Source\Main\App\Web;
+use Source\Main\Controllers\Web;
 
 require __DIR__ . "/vendor/autoload.php";
 
 $route = new Router(URL_BASE);
 
-$route->namespace('Source\Main\App');
+$route->namespace('Source\Main\Controllers');
 
 $route->group(null);
 $route->get("/", "Web:home");

@@ -1,8 +1,9 @@
 <?php
 
-namespace Source\Main\App;
+namespace Source\Main\Controllers;
 
 use League\Plates\Engine;
+use Source\Main\Facades\Login;
 use Source\Main\Models\User;
 
 class Web
@@ -39,27 +40,18 @@ class Web
 
     public function loginAct()
     {
-        if (!isset($_POST['user']) && !isset($_POST['password'])) {
-            header("location: /login");
-            exit();
+        try {
+            $login = new Login($_POST['user'], $_POST['password']);
+        } catch (\Exception $e) {
+            header("location: /login?login_failed=2");
         }
-        $email = filter_var($_POST['user'],FILTER_VALIDATE_EMAIL);
-        //var_dump(password_verify($));
         $user = new User();
-        $userData = $user->login($email, $_POST['password']);
-        if (isset($userData['Authenticated']) && $userData['Authenticated'] === 'Yes') {
-            session_start();
-            $_SESSION['id'] = $userData['UserID'];
-            $_SESSION['email'] = $userData['Email'];
-            $_SESSION['logged-in'] = true;
-
-            //var_dump($_SESSION);
+        $login->loginAuth($user);
+        if (isset($_SESSION['logged-in']) && $_SESSION['logged-in'] === true) {
             header("location: /admin");
         } else {
             header("location: /login?login_failed=1");
         }
-        //var_dump($userData);
-        //
     }
 
     public function logout()

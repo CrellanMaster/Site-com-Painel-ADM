@@ -1,11 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+:root {
+    --btn-color: #FFD700;
+}
+
+.btn-login {
+    font-family: "Montserrat", "Serif";
+    background-color: var(--btn-color);
+    color: #000000;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1em;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+}
 
 a {
     text-decoration: none;
 }
 
-h1{
+h1 {
     font-family: "Open Sans", "serif";
     font-weight: 700;
     font-size: 2rem;
@@ -13,8 +30,8 @@ h1{
     text-align: center;
 }
 
-.light {
-    color: #ffffff;
+.black {
+    color: #000000;
 }
 
 .link-black {
@@ -22,15 +39,47 @@ h1{
     font-weight: bolder;
 }
 
-.form-login{
+/* ============== START FORMULÁRIO ============== */
+
+.form-login {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    width: 100%;
+
 }
 
-.form-group{
+.form-group {
+    position: relative;
     margin-bottom: 10px;
+    width: 80%;
 }
 
+.form-control {
+    padding: 10px 10px 10px 40px;
+    border-radius: 20px;
+    background-color: #E6E6E6;
+}
+
+
+label {
+    position: absolute;
+    top: 6px;
+    padding: 10px 20px;
+}
+
+#exampleInputEmail1::placeholder, #exampleInputPassword1::placeholder {
+    font-family: "Montserrat", "serif";
+    font-weight: 500;
+    font-size: 15px;
+    color: #99A3BA;
+}
+
+.fas, .fa-solid {
+    color: #666666;
+}
+
+/* ============== END FORMULÁRIO ============== */
 
 main {
     background-size: 100% 100%;
@@ -38,114 +87,147 @@ main {
     padding: 0;
 }
 
-.cont {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 300px;
-    width: 250px;
-    margin: 0 auto;
-    background-color: #ffffff;
-    border-radius: 5px;
-}
-
-.cont-banner {
-    width: 50%;
-    height: 100%;
-    display: inline-block;
-}
-
-.cont-content {
+.container-form {
+    width: 80vw;
+    height: 50vh;
     display: flex;
     flex-direction: column;
-    width: 50%;
-    height: 100%;
-    text-align: center;
-    padding: 1rem;
-    justify-content: center;
-    gap: 2rem;
-    box-sizing: content-box;
-}
-
-.title {
-    font-family: "Open Sans", "serif";
-    font-weight: 700;
-    font-size: 2rem;
-    color: #000;
+    align-items: center;
     margin: 0 auto;
+    border-radius: 10px;
+    background-color: #ffffff;
+    justify-content: center;
 }
 
-.hero {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: inline-block;
-}
-
-@media screen and (max-width: 480px) {
-    .cont {
-        display: flex;
-        height: 80vh;
-        width: 90vw;
-        margin: 0 auto;
-        flex-direction: column;
-    }
-
-    .cont-banner {
-        width: 100%;
-        height: 50%;
-    }
-    .cont-content {
-        width: 100%;
-        height: 50%;
-        text-align: center;
-        padding: 1rem;
-        flex-wrap: wrap;
-    }
-    .content{
-        flex-basis: 33.33%;
-    }
-
-}
-
-@media screen and (max-width: 768px) {
-    .cont {
-        display: flex;
-        height: 80vh;
-        width: 90vw;
-        margin: 0 auto;
-        flex-direction: column;
-    }
-
-    .cont-banner {
-        width: 100%;
-        height: 50%;
-    }
-
-}
-
-@media screen and (max-width: 1200px) {
-    .cont {
-        height: 80vh;
-        width: 90vw;
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .container-form {
+        width: 40vw;
         margin: 0 auto;
     }
 }
 
-
-/*Menu*/
-.navbar-collapse {
-    text-align: center;
-    padding: 10px;
+@media (min-width: 1200px) and (max-width: 1919.98px) {
+    .container-form {
+        width: 40vw;
+        margin: 0 auto;
+    }
 }
 
-.dropdown-item {
-    font-family: "Open Sans", "serif";
-    font-weight: normal;
+@media (min-width: 1920px) {
+    .container-form {
+        width: 550px;
+        margin: 0 auto;
+    }
 }
 
-.nav-link, .navbar-brand, .dropdown-men, #nav-item {
-    font-family: "Open Sans", "serif";
-    font-weight: normal;
-    color: #fff;
-}
+/*.cont {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    height: 300px;*/
+/*    width: 250px;*/
+/*    margin: 0 auto;*/
+/*    background-color: #ffffff;*/
+/*    border-radius: 5px;*/
+/*}*/
+
+/*.cont-banner {*/
+/*    width: 50%;*/
+/*    height: 100%;*/
+/*    display: inline-block;*/
+/*}*/
+
+/*.cont-content {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    width: 50%;*/
+/*    height: 100%;*/
+/*    text-align: center;*/
+/*    padding: 1rem;*/
+/*    justify-content: center;*/
+/*    gap: 2rem;*/
+/*    box-sizing: content-box;*/
+/*}*/
+
+/*.title {*/
+/*    font-family: "Open Sans", "serif";*/
+/*    font-weight: 700;*/
+/*    font-size: 2rem;*/
+/*    color: #000;*/
+/*    margin: 0 auto;*/
+/*}*/
+
+/*.hero {*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    object-fit: cover;*/
+/*    display: inline-block;*/
+/*}*/
+
+/*@media screen and (max-width: 480px) {*/
+/*    .cont {*/
+/*        display: flex;*/
+/*        height: 80vh;*/
+/*        width: 90vw;*/
+/*        margin: 0 auto;*/
+/*        flex-direction: column;*/
+/*    }*/
+
+/*    .cont-banner {*/
+/*        width: 100%;*/
+/*        height: 50%;*/
+/*    }*/
+/*    .cont-content {*/
+/*        width: 100%;*/
+/*        height: 50%;*/
+/*        text-align: center;*/
+/*        padding: 1rem;*/
+/*        flex-wrap: wrap;*/
+/*    }*/
+/*    .content{*/
+/*        flex-basis: 33.33%;*/
+/*    }*/
+
+/*}*/
+
+/*@media screen and (max-width: 768px) {*/
+/*    .cont {*/
+/*        display: flex;*/
+/*        height: 80vh;*/
+/*        width: 90vw;*/
+/*        margin: 0 auto;*/
+/*        flex-direction: column;*/
+/*    }*/
+
+/*    .cont-banner {*/
+/*        width: 100%;*/
+/*        height: 50%;*/
+/*    }*/
+
+/*}*/
+
+/*@media screen and (max-width: 1200px) {*/
+/*    .cont {*/
+/*        height: 80vh;*/
+/*        width: 90vw;*/
+/*        margin: 0 auto;*/
+/*    }*/
+/*}*/
+
+
+/*!*Menu*!*/
+/*.navbar-collapse {*/
+/*    text-align: center;*/
+/*    padding: 10px;*/
+/*}*/
+
+/*.dropdown-item {*/
+/*    font-family: "Open Sans", "serif";*/
+/*    font-weight: normal;*/
+/*}*/
+
+/*.nav-link, .navbar-brand, .dropdown-men, #nav-item {*/
+/*    font-family: "Open Sans", "serif";*/
+/*    font-weight: normal;*/
+/*    color: #fff;*/
+/*}*/

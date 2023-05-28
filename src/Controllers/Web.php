@@ -17,7 +17,9 @@ class Web
 
     public function home()
     {
-        session_start();
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
         var_dump($_SESSION);
         echo $this->view->render("home", [
             "Title" => "Home Page"
@@ -26,13 +28,15 @@ class Web
 
     public function login()
     {
-        //var_dump($_SERVER);
-        session_start();
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+        var_dump($_SESSION);
         if (isset($_SESSION['logged-in']) && $_SESSION['logged-in'] === true) {
             header("location: admin");
+            var_dump($_SESSION);
         }
 
-        //var_dump($_SESSION);
         echo $this->view->render('login', [
             "Title" => "Entrar"
         ]);

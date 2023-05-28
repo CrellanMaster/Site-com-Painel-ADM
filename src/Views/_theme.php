@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="/public/assets/css/style.css">
+    <script src="https://kit.fontawesome.com/da6dd6d344.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <nav>
@@ -48,9 +49,19 @@
                         </li>
 
                         <li class="nav-item">
-                            <button type="button" class="btn btn-light">
-                                <a class="link-black" href="<?= url("login"); ?>">Entrar</a>
-                            </button>
+                            <?php
+                            if (isset($_SESSION['logged-in']) && $_SESSION['logged-in'] === true) : ?>
+                                <button type="button" class="btn btn-light">
+                                    <a class="link-black" href="<?= url("logout"); ?>">Sair</a>
+                                </button>
+                            <?php
+                            else : ?>
+                                <button type="button" class="btn btn-light">
+                                    <a class="link-black" href="<?= url("login"); ?>">Entrar</a>
+                                </button>
+                            <?php
+                            endif; ?>
+
                         </li>
 
                     </ul>

@@ -30,6 +30,9 @@ class User extends \CoffeeCode\DataLayer\DataLayer
                 "Authenticated" => "Yes"
             ];
         }
-        return [];
+        return [
+            "success" => false,
+            "errorCode" => 1
+        ];
     }
 }

@@ -31,7 +31,7 @@ class Web
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
-        var_dump($_SESSION);
+
         if (isset($_SESSION['logged-in']) && $_SESSION['logged-in'] === true) {
             header("location: admin");
             var_dump($_SESSION);
@@ -47,15 +47,28 @@ class Web
         try {
             $login = new Login($_POST['user'], $_POST['password']);
         } catch (\Exception $e) {
-            header("location: /login?login_failed=2");
+            //header("location: /login?login_failed=2");
+            echo json_encode([
+                "success" => false,
+                "errorCode" => 2
+            ]);
+            die();
         }
         $user = new User();
-        $login->loginAuth($user);
-        if (isset($_SESSION['logged-in']) && $_SESSION['logged-in'] === true) {
-            header("location: /admin");
+
+        $arrayData = $login->loginAuth($user);
+        if (isset($arrayData['errorCode']) && $arrayData['errorCode'] === 1) {
+            echo json_encode($arrayData);
         } else {
-            header("location: /login?login_failed=1");
+            echo json_encode(["success" => true]);
         }
+
+
+        //if (isset($_SESSION['logged-in']) && $_SESSION['logged-in'] === true) {
+        //    header("location: /admin");
+        //} else {
+        //    header("location: /login?login_failed=1");
+        //}
     }
 
     public function logout()

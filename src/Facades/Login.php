@@ -29,7 +29,7 @@ class Login
         return $this->password;
     }
 
-    public function loginAuth(User $user)
+    public function loginAuth(User $user) : array
     {
         $userData = $user->login($this->getEmail(), $this->getPassword());
 
@@ -39,5 +39,6 @@ class Login
             $_SESSION['email'] = $userData['Email'];
             $_SESSION['logged-in'] = true;
         }
+        return $userData;
     }
 }

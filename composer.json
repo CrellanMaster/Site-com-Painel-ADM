@@ -1,0 +1,27 @@
+{
+  "name": "source/main",
+  "description": "Projeto Site MVC",
+  "type": "project",
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+      "Source\\Main\\": "src/"
+    },
+    "files": [
+      "src/Config.php",
+      "src/Utils/Auth.php",
+      "src/Utils/Helpers.php"
+    ]
+  },
+  "authors": [
+    {
+      "name": "CrellanMaster"
+    }
+  ],
+  "require": {
+    "ext-pdo": "*",
+    "coffeecode/router": "^2.0",
+    "coffeecode/datalayer": "^2.0",
+    "league/plates": "^3.5"
+  }
+}
